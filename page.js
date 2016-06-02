@@ -560,7 +560,9 @@
     // Ignore if tag has
     // 1. "download" attribute
     // 2. rel="external" attribute
-    if (el.hasAttribute('download') || el.getAttribute('rel') === 'external') return;
+    // 3. href="" attribute (empty href from React-bootstrap)
+    if (el.hasAttribute('download') || el.getAttribute('rel') === 'external' || el.getAttribute('href') === "") return;
+
 
     // ensure non-hash for the same path
     var link = el.getAttribute('href');
